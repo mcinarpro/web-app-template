@@ -1,17 +1,13 @@
-import { cn } from "@/lib/utils";
-import "@/styles/globals.css";
-import { Inter as FontSans } from "@next/font/google";
-
-const fontSans = FontSans({
-  subsets: ["latin"],
-  variable: "--font-inter",
-});
+import ThemeProvider from "@/components/theme/provider";
+import "./globals.css";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={cn("bg-white font-sans text-slate-900 antialiased", fontSans.variable)}>
+    <html lang="en">
       <head />
-      <body className="min-h-screen">{children}</body>
+      <body>
+        <ThemeProvider>{children}</ThemeProvider>
+      </body>
     </html>
   );
 }
