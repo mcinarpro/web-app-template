@@ -1,8 +1,7 @@
-"use client";
-
-import { Box, BoxProps, IconButton, styled, Typography, TypographyProps } from "@mui/material";
+import { Box, BoxProps, IconButton, Stack, styled, Typography, TypographyProps } from "@mui/material";
 import { Close } from "mdi-material-ui";
-
+import logo from "@/public/logo.png";
+import Image from "next/image";
 
 interface Props {
   hidden: boolean;
@@ -18,23 +17,17 @@ const MenuHeaderWrapper = styled(Box)<BoxProps>(({ theme }) => ({
   minHeight: theme.mixins.toolbar.minHeight,
 }));
 
-const HeaderTitle = styled(Typography)<TypographyProps>({
-  fontWeight: 700,
-  lineHeight: 1.2,
-  transition: "opacity .25s ease-in-out, margin .25s ease-in-out",
-});
-
-export default function NavHeader({ hidden, toggleNavVisibility } : Props) {
+export default function NavHeader({ hidden, toggleNavVisibility }: Props) {
   const menuHeaderPaddingLeft = () => {
     return 5.5;
   };
 
   return (
     <MenuHeaderWrapper className="nav-header" sx={{ pl: menuHeaderPaddingLeft() }}>
-      <HeaderTitle variant="h6" sx={{ ml: 2 }}>
-        100comptable
-      </HeaderTitle>
-      
+      <Stack sx={{ p: 4, justifyContent: "center", alignItems: "center" }}>
+        <Image src={logo} alt="Logo" />
+      </Stack>
+
       {hidden && (
         <IconButton disableRipple disableFocusRipple onClick={toggleNavVisibility} sx={{ p: 0, backgroundColor: "transparent !important" }}>
           <Close fontSize="small" />

@@ -6,6 +6,7 @@ import MuiToolbar, { ToolbarProps } from "@mui/material/Toolbar";
 import { hexToRGBA } from "@/lib/utils";
 import { Box, IconButton } from "@mui/material";
 import MenuIcon from "mdi-material-ui/Menu";
+import UserDropdown from "../shared/user-dropdown";
 
 interface Props {
   hidden: boolean;
@@ -38,20 +39,14 @@ const Toolbar = styled(MuiToolbar)<ToolbarProps>(({ theme }) => ({
 const LayoutAppBar = ({ hidden, toggleNavVisibility }: Props) => {
   const theme = useTheme();
 
-  const appBarFixedStyles = () => {
-    return {
-      px: `${theme.spacing(6)} !important`,
-      boxShadow: theme.shadows[3],
-      backgroundColor: hexToRGBA(theme.palette.background.paper, 1),
-    };
-  };
-
   return (
     <AppBar elevation={0} color="default" className="layout-navbar" position={"sticky"}>
       <Toolbar
         className="navbar-content-container"
         sx={{
-          ...{ ...appBarFixedStyles() },
+          px: `${theme.spacing(6)} !important`,
+          boxShadow: theme.shadows[3],
+          backgroundColor: hexToRGBA(theme.palette.background.paper, 1),
         }}
       >
         <Box
@@ -70,8 +65,7 @@ const LayoutAppBar = ({ hidden, toggleNavVisibility }: Props) => {
             ) : null}
           </Box>
           <Box className="actions-right" sx={{ display: "flex", alignItems: "center" }}>
-            {/* <UserDropdown /> */}
-            user icon
+            <UserDropdown />
           </Box>
         </Box>
       </Toolbar>

@@ -5,7 +5,7 @@ import { Theme } from "@mui/material/styles";
 // import MuiCard from './card'
 // import MuiChip from './chip'
 // import MuiLink from './link'
-// import MuiList from './list'
+import MuiList from "./list";
 // import MuiMenu from './menu'
 // import MuiTabs from './tabs'
 // import MuiInput from './input'
@@ -38,7 +38,7 @@ import MuiDataGrid from "./data-grid";
 const Overrides = (theme: Theme) => {
   //   const fab = MuiFab(theme);
   //   const chip = MuiChip(theme);
-  //   const list = MuiList(theme);
+  const list = MuiList(theme);
   //   const tabs = MuiTabs(theme);
   //   const input = MuiInput(theme);
   //   const tables = MuiTable(theme);
@@ -67,7 +67,7 @@ const Overrides = (theme: Theme) => {
   return Object.assign(
     //     fab,
     //     chip,
-    //     list,
+    list,
     //     menu,
     //     tabs,
     //     cards,

@@ -1,18 +1,14 @@
-"use client";
-
-import { ReactNode, useRef, useState } from "react";
-import { styled, useTheme } from "@mui/material/styles";
-import { Box, BoxProps, List } from "@mui/material";
+import * as React from "react";
+import { Box, List, useTheme } from "@mui/material";
 import PerfectScrollbar from "react-perfect-scrollbar";
 import { hexToRGBA } from "@/lib/utils";
 import Drawer from "./drawer";
 import NavHeader from "./nav-header";
 import NavItems from "./nav-items";
-import { NavItemsType } from "app/(dashboard)/types";
+import { NavItemsType } from "@/types/layout";
 
 interface Props {
   hidden: boolean;
-  children: ReactNode;
   navVisible: boolean;
   toggleNavVisibility: () => void;
   setNavVisible: (value: boolean) => void;
@@ -21,7 +17,7 @@ interface Props {
 
 const Navigation = (props: Props) => {
   const { hidden } = props;
-  const shadowRef = useRef(null);
+  const shadowRef = React.useRef(null);
   const theme = useTheme();
 
   const handleInfiniteScroll = (ref: HTMLElement) => {
@@ -50,13 +46,6 @@ const Navigation = (props: Props) => {
       // @ts-ignore
       shadowRef.current.classList.remove("d-block");
     }
-  };
-
-  const shadowBgColor = () => {
-    return `linear-gradient(${theme.palette.background.default} 5%,${hexToRGBA(theme.palette.background.default, 0.85)} 30%,${hexToRGBA(
-      theme.palette.background.default,
-      0.5
-    )} 65%,${hexToRGBA(theme.palette.background.default, 0.3)} 75%,transparent)`;
   };
 
   const ScrollWrapper = hidden ? Box : PerfectScrollbar;

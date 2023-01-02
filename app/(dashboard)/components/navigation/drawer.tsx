@@ -1,14 +1,12 @@
-"use client";
-
-import { ReactNode, useEffect, useState } from "react";
+import * as React from "react";
 import { styled, useTheme } from "@mui/material/styles";
 import MuiSwipeableDrawer, { SwipeableDrawerProps } from "@mui/material/SwipeableDrawer";
 
 interface Props {
   hidden: boolean;
   navVisible: boolean;
-  children: ReactNode;
   setNavVisible: (value: boolean) => void;
+  children: React.ReactNode;
 }
 
 const SwipeableDrawer = styled(MuiSwipeableDrawer)<SwipeableDrawerProps>({
@@ -32,10 +30,10 @@ const SwipeableDrawer = styled(MuiSwipeableDrawer)<SwipeableDrawerProps>({
 const Drawer = (props: Props) => {
   const { hidden, children, navVisible, setNavVisible } = props;
   const theme = useTheme();
-  const [variant, setVariant] = useState<"temporary" | "permanent" | "persistent">("temporary");
+  const [variant, setVariant] = React.useState<"temporary" | "permanent" | "persistent">("temporary");
   const navWidth = 260;
 
-  useEffect(() => {
+  React.useEffect(() => {
     setVariant(hidden ? "temporary" : "permanent");
   }, [hidden]);
 
