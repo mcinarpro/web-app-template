@@ -4,7 +4,7 @@ import { styled, useTheme } from "@mui/material/styles";
 import MuiAppBar, { AppBarProps } from "@mui/material/AppBar";
 import MuiToolbar, { ToolbarProps } from "@mui/material/Toolbar";
 import { hexToRGBA } from "@/lib/utils";
-import { Box, IconButton } from "@mui/material";
+import { Box, IconButton, useScrollTrigger } from "@mui/material";
 import MenuIcon from "mdi-material-ui/Menu";
 import UserDropdown from "../shared/user-dropdown";
 
@@ -38,15 +38,23 @@ const Toolbar = styled(MuiToolbar)<ToolbarProps>(({ theme }) => ({
 
 const LayoutAppBar = ({ hidden, toggleNavVisibility }: Props) => {
   const theme = useTheme();
+  const scrollTrigger = useScrollTrigger({ threshold: 0, disableHysteresis: true })
+
+  const appBarFixedStyles = () => {
+    return {
+      px: `${theme.spacing(6)} !important`,
+      boxShadow: 3,
+      backgroundColor: hexToRGBA(theme.palette.background.paper, 1),
+      ...({ border: `1px solid ${theme.palette.divider}`, borderTopWidth: 0 })
+    }
+  }
 
   return (
     <AppBar elevation={0} color="default" className="layout-navbar" position={"sticky"}>
       <Toolbar
         className="navbar-content-container"
         sx={{
-          px: `${theme.spacing(6)} !important`,
-          boxShadow: theme.shadows[3],
-          backgroundColor: hexToRGBA(theme.palette.background.paper, 1),
+          ...(scrollTrigger && { ...appBarFixedStyles() }),
         }}
       >
         <Box

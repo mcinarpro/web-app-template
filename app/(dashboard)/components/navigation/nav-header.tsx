@@ -24,7 +24,7 @@ export default function NavHeader({ hidden, toggleNavVisibility }: Props) {
 
   return (
     <MenuHeaderWrapper className="nav-header" sx={{ pl: menuHeaderPaddingLeft() }}>
-      <Stack sx={{ p: 4, justifyContent: "center", alignItems: "center" }}>
+      <Stack sx={{ p: 4, my:4, justifyContent: "center", alignItems: "center" }}>
         <Image src={logo} alt="Logo" />
       </Stack>
 
