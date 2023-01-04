@@ -3,26 +3,31 @@
 import { Box, BoxProps, styled, Theme, useMediaQuery } from "@mui/material";
 import { useState } from "react";
 import Navigation from "./components/navigation";
-import { CalendarBlankOutline, EmailOutline, MessageOutline } from "mdi-material-ui";
+import { AccountBoxOutline, FileDocumentOutline, ReceiptText, ViewAgendaOutline } from "mdi-material-ui";
 import AppBar from "./components/app-bar";
 import { NavItemsType } from "@/types/layout";
 
 const navigation = (): NavItemsType => {
   return [
     {
-      title: "Tax Returns",
-      icon: EmailOutline,
+      title: "Déclarations privées",
+      icon: FileDocumentOutline,
       path: "/tax-returns",
     },
     {
-      title: "Chat",
-      icon: MessageOutline,
+      title: "Facturation",
+      icon: ReceiptText,
       path: "/invoicing",
     },
     {
-      title: "Calendar",
-      icon: CalendarBlankOutline,
-      path: "/apps/calendar",
+      title: "Comptabilité",
+      icon: AccountBoxOutline,
+      path: "/accounting",
+    },
+    {
+      title: "Salaires",
+      icon: ViewAgendaOutline,
+      path: "/wages",
     },
   ];
 };
