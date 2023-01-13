@@ -1,9 +1,22 @@
 "use client";
 
 import * as React from "react";
-import { Card, Grid, IconButton, Menu, MenuItem, styled, Typography } from "@mui/material";
+import {
+  Card,
+  Grid,
+  IconButton,
+  Menu,
+  MenuItem,
+  styled,
+  Typography,
+} from "@mui/material";
 import { DataGrid, GridColumns } from "@mui/x-data-grid";
-import { DeleteOutline, DotsVertical, EyeOutline, PencilOutline } from "mdi-material-ui";
+import {
+  DeleteOutline,
+  DotsVertical,
+  EyeOutline,
+  PencilOutline,
+} from "mdi-material-ui";
 import { ThemeColor } from "@/types/layout";
 import { TaxReturnsType } from "@/types/tax-return";
 import Link from "next/link";
@@ -94,9 +107,11 @@ const columns: GridColumns<TaxReturnsType> = [
     headerName: "Name",
     renderCell: ({ row }: CellType) => {
       return (
-        <Typography noWrap variant="body2">
-          {row.name}
-        </Typography>
+        <Link href={`tax-returns/${row.id}`}>
+          <Typography noWrap variant="body2">
+            {row.name}
+          </Typography>
+        </Link>
       );
     },
   },

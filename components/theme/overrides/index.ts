@@ -2,7 +2,7 @@ import { Theme } from "@mui/material/styles";
 
 // ** Overrides Imports
 // import MuiFab from './fab'
-// import MuiCard from './card'
+import MuiCard from "./card";
 // import MuiChip from './chip'
 // import MuiLink from './link'
 import MuiList from "./list";
@@ -51,7 +51,7 @@ const Overrides = (theme: Theme) => {
   //   const divider = MuiDivider(theme);
   //   const menu = MuiMenu(theme, skin);
   //   const tooltip = MuiTooltip(theme);
-  //   const cards = MuiCard(theme, skin);
+  const cards = MuiCard(theme);
   //   const backdrop = MuiBackdrop(theme);
   const dataGrid = MuiDataGrid(theme);
   //   const switches = MuiSwitches(theme);
@@ -70,7 +70,7 @@ const Overrides = (theme: Theme) => {
     list,
     //     menu,
     //     tabs,
-    //     cards,
+    cards,
     //     input,
     //     select,
     //     alerts,
